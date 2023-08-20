@@ -4,6 +4,40 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectOnlineMovieStoreAPI", "ProjectOnlineMovieStoreAPI\ProjectOnlineMovieStoreAPI.csproj", "{53647813-DCA4-4693-AC7F-98AD33C8428A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E} = {20018B1C-F583-4C6D-A3E7-633A98887C8E}
+		{3C1E2C79-D054-423B-9158-E3A9639C49BA} = {3C1E2C79-D054-423B-9158-E3A9639C49BA}
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Entities", "OnlineMovieStore.Entities\OnlineMovieStore.Entities.csproj", "{ADAACAFC-6DD0-4BDF-B758-715125847139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Repositories", "OnlineMovieStore.Repositories\OnlineMovieStore.Repositories.csproj", "{A9C4AB97-F159-4E49-813B-C72F9523D79F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E} = {20018B1C-F583-4C6D-A3E7-633A98887C8E}
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Repository.Interfaces", "OnlineMovieStore.Repository.Interfaces\OnlineMovieStore.Repository.Interfaces.csproj", "{8982623F-18E4-4D7D-B2AC-DE6434B6436D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Service.Interfaces", "OnlineMovieStore.Service.Interfaces\OnlineMovieStore.Service.Interfaces.csproj", "{3C1E2C79-D054-423B-9158-E3A9639C49BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Services", "OnlineMovieStore.Services\OnlineMovieStore.Services.csproj", "{B768FE66-EE45-48C2-B6F5-4297CA4DD10B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8982623F-18E4-4D7D-B2AC-DE6434B6436D} = {8982623F-18E4-4D7D-B2AC-DE6434B6436D}
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMovieStore.Data", "OnlineMovieStore.Data\OnlineMovieStore.Data.csproj", "{20018B1C-F583-4C6D-A3E7-633A98887C8E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADAACAFC-6DD0-4BDF-B758-715125847139} = {ADAACAFC-6DD0-4BDF-B758-715125847139}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +49,30 @@ Global
 		{53647813-DCA4-4693-AC7F-98AD33C8428A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53647813-DCA4-4693-AC7F-98AD33C8428A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53647813-DCA4-4693-AC7F-98AD33C8428A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAACAFC-6DD0-4BDF-B758-715125847139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAACAFC-6DD0-4BDF-B758-715125847139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAACAFC-6DD0-4BDF-B758-715125847139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAACAFC-6DD0-4BDF-B758-715125847139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C4AB97-F159-4E49-813B-C72F9523D79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C4AB97-F159-4E49-813B-C72F9523D79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C4AB97-F159-4E49-813B-C72F9523D79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C4AB97-F159-4E49-813B-C72F9523D79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8982623F-18E4-4D7D-B2AC-DE6434B6436D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8982623F-18E4-4D7D-B2AC-DE6434B6436D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8982623F-18E4-4D7D-B2AC-DE6434B6436D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8982623F-18E4-4D7D-B2AC-DE6434B6436D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1E2C79-D054-423B-9158-E3A9639C49BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1E2C79-D054-423B-9158-E3A9639C49BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1E2C79-D054-423B-9158-E3A9639C49BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1E2C79-D054-423B-9158-E3A9639C49BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B768FE66-EE45-48C2-B6F5-4297CA4DD10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B768FE66-EE45-48C2-B6F5-4297CA4DD10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B768FE66-EE45-48C2-B6F5-4297CA4DD10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B768FE66-EE45-48C2-B6F5-4297CA4DD10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20018B1C-F583-4C6D-A3E7-633A98887C8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
