@@ -3,6 +3,7 @@ using OnlineMovieStore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -211,6 +212,158 @@ namespace OnlineMovieStore.Data
           );
             #endregion
 
-        }
-    }
-}
+            #region Actor
+            builder.Entity<Actor>().HasData(
+                new Actor
+                {
+                    Id = 1,
+                    Name = "Richard Tiffany Gere",
+                    ShortDescription = "Richard Tiffany Gere is an American actor. He began in films in the 1970s," +
+                    " playing a supporting role in Looking for Mr. Goodbar and a starring role in Days of Heaven. " +
+                    "He came to prominence with his role in the film American Gigolo, which established him as a leading " +
+                    "man and a sex symbol.",
+                    IsPopular = true,
+
+                },
+                new Actor
+                {
+                    Id = 2,
+                    Name = "Thomas Cruise",
+                    ShortDescription = "Thomas Cruise Mapother IV is an American actor, producer and pilot. " +
+                    "One of the world's highest-paid actors, he has received various accolades, " +
+                    "including an Honorary Palme d'Or and three Golden Globe Awards, in addition to nominations for " +
+                    "four Academy Awards.",
+                    IsPopular = true,
+                },
+                new Actor
+                {
+                    Id = 3,
+                    Name = "Morgan Freeman",
+                    ShortDescription = "Morgan Freeman is an American actor, producer, and narrator. " +
+                    "He is known for his distinctive deep voice and various roles in a wide variety of film genres",
+                    IsPopular = true,
+                },
+                new Actor
+                {
+                    Id = 4,
+                    Name = "Alfredo James Pacino",
+                    ShortDescription = "Alfredo James Pacino is an American actor. " +
+                    "Considered one of the greatest and most influential actors of the 20th century, " +
+                    "Pacino has received numerous accolades: including an Academy Award",
+                    IsPopular = true,
+                },
+                new Actor {
+                    Id = 5,
+                    Name = "Christian Charles Philip Bale",
+                    ShortDescription = "Christian Charles Philip Bale is an English actor." +
+                    " Known for his versatility and physical transformations for his roles, " +
+                    "he has been a leading man in films of several genres. He has received various accolades, " +
+                    "including an Academy Award and two Golden Globe Awards.",
+                    IsPopular = true,
+                },
+                new Actor
+                {
+                    Id = 6,
+                    Name = "James Eugene Carrey",
+                    ShortDescription = "James Eugene Carrey is a Canadian and American actor and comedian. " +
+                    "Known for his energetic slapstick performances, Carrey first gained recognition in 1990, " +
+                    "after landing a role in the American sketch comedy television series In Living Color.",
+                    IsPopular = false,
+                },
+                new Actor
+                {
+                    Id = 7,
+                    Name = "Ryan Thomas Gosling",
+                    ShortDescription = "Ryan Thomas Gosling is a Canadian actor. Prominent in both independent film " +
+                    "and major studio features of varying genres, his films have accrued a worldwide box " +
+                    "office gross of over 1.9 billion USD.",
+                    IsPopular = false,
+                },
+                new Actor
+                {
+                    Id = 8,
+                    Name = "Robbie Robertson",
+                    ShortDescription = "Jaime Royal \"Robbie\" Robertson OC was a Canadian musician. He was lead " +
+                    "guitarist for Bob Dylan in the mid-late 1960s and early-mid 1970s, guitarist and songwriter " +
+                    "with the Band from their inception until 1978, and a solo artist. Robertson's work with " +
+                    "the Band was instrumental in creating the Americana music genre.",
+                    IsPopular = false,
+                },
+                new Actor
+                {
+                    Id = 9,
+                    Name = "Bill Istvan Günther Skarsgård",
+                    ShortDescription = "Bill Istvan Günther Skarsgård is a Swedish actor. He is best known for " +
+                    "portraying Pennywise in the horror films It and It Chapter Two, based on Stephen King's novel " +
+                    "of the same name. Other horror appearances were in the film Barbarian and the series Hemlock Grove " +
+                    "and Castle Rock.",
+                },
+                new Actor
+                {
+                    Id = 10,
+                    Name = "Noah Leslie Hathaway",
+                    ShortDescription = "Noah Leslie Hathaway is an American actor and a former teen idol. He is best known for his roles " +
+                    "as Atreyu in the 1984 film The NeverEnding Story and for portraying Boxey on the original television series " +
+                    "Battlestar Galactica. His work in The NeverEnding Story made him particularly popular as a teen idol in Europe"
+                });
+            #endregion
+
+            #region Producer
+            builder.Entity<Producer>().HasData(
+                new Producer
+                {
+                    Id = 1,
+                    Name = "Richard Gere",
+                },
+                new Producer
+                {
+                    Id = 2,
+                    Name = "Tom Cruise",
+                },
+                new Producer
+                {
+                    Id = 3,
+                    Name = "Niki Marvin"
+                },
+                new Producer
+                {
+                    Id = 4,
+                    Name = "Francis Ford Coppola",
+                },
+                new Producer
+                {
+                    Id = 5,
+                    Name = "Christopher Nolan",
+                },
+                new Producer
+                {
+                    Id = 6,
+                    Name = "Peter Farrelly",
+                },
+                new Producer
+                {
+                    Id = 7,
+                    Name = "Mark Johnson",
+                },
+                new Producer
+                {
+                    Id = 8,
+                    Name = "Garth Hudson",
+                },
+                new Producer
+                {
+                    Id = 9,
+                    Name = "Roy Lee",
+                },
+                new Producer
+                {
+                    Id = 10,
+                    Name = "Bernd Eichinger",
+                });
+
+
+			#endregion
+
+		}
+	}
+};

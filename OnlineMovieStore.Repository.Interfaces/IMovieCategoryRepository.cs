@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineMovieStore.Repository.Interfaces
 {
-    internal class IMovieCategoryRepository
+	public class IMovieCategoryRepository
     {
     }
 }

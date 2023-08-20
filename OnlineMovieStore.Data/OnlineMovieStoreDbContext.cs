@@ -2,11 +2,11 @@
     namespace OnlineMovieStore.Data
     {
         using Microsoft.EntityFrameworkCore;
-        using OnlineMovieStore.Entities;
+	using OnlineMovieStore.Entities;
         using System;
         using System.Collections.Generic;
         using System.Linq;
-        using System.Text;
+	using System.Text;
         using System.Threading.Tasks;
 
         //tuka gi kostruirame tabelte koi sto treba da gi pustime na SQL
@@ -37,14 +37,40 @@
             public DbSet<Shows> Shows { get; set; }
 
 
-            protected override void OnModelCreating(ModelBuilder builder)
-            {
-                base.OnModelCreating(builder);
+   //         protected override void OnModelCreating(ModelBuilder builder)
+   //         {
+			//byte[] passwordHash, passwordSalt;
+
+			//// comment/uncomment for testing purposes
+			//// Debugger.Launch();
+
+			//var currentDirectory = Directory.GetCurrentDirectory();
+			//var filePath = Path.Combine(currentDirectory, "Settings", "user_settings.json");
+
+			//UserSettings userSettings = JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(filePath));
+
+			//CreatePasswords(userSettings.AdminCredentials.Password, out passwordHash, out passwordSalt);
+
+			//DataSeed.Seed(builder, userSettings.AdminCredentials.Username, passwordHash, passwordSalt);
+			
+			//base.OnModelCreating(builder);
+   //         }
+
+		//#region Helper Methods
+
+		//private void CreatePasswords(string password, out byte[] passwordHash, out byte[] passwordSalt)
+		//{
+		//	using (var hmac = new HMACSHA512())
+		//	{
+		//		passwordSalt = hmac.Key;
+		//		passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+		//	}
+		//}
+
+		//#endregion
 
 
-            }
 
 
-
-        }
-    }
+	}
+}
