@@ -1,8 +1,13 @@
 ﻿namespace ProjectOnlineMovieStoreAPI.Models
 {
+	using Newtonsoft.Json;
+
 	public class Hollywood
 	{
-		//TODO: External API
+		[JsonProperty("Id")]
+		public int Id { get; set; }
 
+		[JsonProperty("Name")]
+		public string Name { get; set; }
 	}
 }
