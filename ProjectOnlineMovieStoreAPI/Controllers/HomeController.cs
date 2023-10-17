@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿namespace ProjectOnlineMovieStoreAPI.Controllers
+{
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjectOnlineMovieStoreAPI.Models;
-using System.Security.Cryptography.X509Certificates;
 
-namespace ProjectOnlineMovieStoreAPI.Controllers
-{
 
-	public class HomeController : BaseAPIController
+
+	public class HomeController : BaseApiController
 	{
+
+
 		[HttpGet("Hollywood")]
-		public async Task<ActionResult<IEnumerable<HollywoodsData>>> GetHollywoods()
+		public async Task<ActionResult<Hollywood>> GetHollywoods()
 		{
 			try
 			{
@@ -26,20 +28,21 @@ namespace ProjectOnlineMovieStoreAPI.Controllers
 
 		#region Helper Methods
 
-		public async Task<List<Hollywood>> CallExternalApiHollywoods()
+		
+		[NonAction]
+		public async Task<Hollywood> CallExternalApiHollywoods()
 		{
-			List<Hollywood> hollywoodsData = new List<Hollywood>();
+			Hollywood hollywoodsData = new Hollywood();
 
 			// TODO: logic for getting external data here
 			using (var httpClient = new HttpClient())
 			{
-				using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/550?api_key=1e2f1f0c67745c9a8e6cb8e7f4727fe7"))
+				using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/popular?api_key=1e2f1f0c67745c9a8e6cb8e7f4727fe7"))
 				{
-				 string apiResponse = await response.Content.ReadAsStringAsync();
-					
-					if (!string.IsNullOrEmpty(apiResponse)) 
+					string apiResponse = await response.Content.ReadAsStringAsync();
+					if (!string.IsNullOrEmpty(apiResponse))
 					{
-						hollywoodsData = JsonConvert.DeserializeObject<List<Hollywood>>(apiResponse);
+						hollywoodsData = JsonConvert.DeserializeObject<Hollywood>(apiResponse);
 					}
 				}
 			}
