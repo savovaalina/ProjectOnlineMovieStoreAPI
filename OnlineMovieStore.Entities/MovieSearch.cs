@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Entities
+﻿namespace OnlineMovieStore.Entities
 {
-    public class MovieSearch
+	using System.ComponentModel.DataAnnotations;
+	public class MovieSearch
     {
+        [Key]
         public int SearchMovieId { get; set; }
 
         [StringLength(450)]

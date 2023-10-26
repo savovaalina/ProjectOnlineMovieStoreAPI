@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Entities
+﻿namespace OnlineMovieStore.Entities
 {
-    public class Movie
+	using System.ComponentModel.DataAnnotations;
+	public class Movie
     {
         [Key]
         public int MovieId { get; set; }
 
-        #region MovieDetails
+        #region Movie Details
 
         [StringLength(250)]
         public string MovieName { get; set; } = null!;
@@ -63,8 +57,6 @@ namespace OnlineMovieStore.Entities
 
         public bool IsPopular { get; set; } // top 10 popularni movie (moze i da go staime a moze i ne)
 
-
-        //TODO: Relation with other tabeles-> Tuka ke ja praime relacijata podocna
         public virtual ICollection<PhotoMovie>? Photos { get; set; }
 
     }

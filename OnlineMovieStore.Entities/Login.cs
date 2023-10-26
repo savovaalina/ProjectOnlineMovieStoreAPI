@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OnlineMovieStore.Entities
 {
+	
     public class Login
     {
 
+        [StringLength (100)]    
         public int LoginMovieId { get; set; }
 
         public string LoginUsername { get; set; } = null!;

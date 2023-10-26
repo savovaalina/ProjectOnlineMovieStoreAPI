@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Entities
+﻿namespace OnlineMovieStore.Entities
 {
-    public class MovieCategory
+	using System.ComponentModel.DataAnnotations;
+	public class MovieCategory
     {
         [Key]
         public int MovieId { get; set; }
@@ -22,7 +16,7 @@ namespace OnlineMovieStore.Entities
 
 
         //TODO: Relation with other tabeles-> Tuka ke ja praime relacijata podocna
-        public virtual ICollection<Movie>? Movie { get; set; }
+        public virtual ICollection<Movie>? Movies { get; set; }
 
 
     }

@@ -1,16 +1,16 @@
 ﻿
     namespace OnlineMovieStore.Data
     {
-        using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
 	using Newtonsoft.Json;
 	using OnlineMovieStore.Entities;
 	using OnlineMovieStore.Entities.Config;
 	using System;
-        using System.Collections.Generic;
-        using System.Linq;
+    using System.Collections.Generic;
+    using System.Linq;
 	using System.Security.Cryptography;
 	using System.Text;
-        using System.Threading.Tasks;
+    using System.Threading.Tasks;
 
     //tuka gi kostruirame tabelte koi sto treba da gi pustime na SQL
     //Gi kreirame site entitetski tabeli koi sto nie sme gi napraile

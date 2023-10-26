@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Entities
+﻿namespace OnlineMovieStore.Entities
 {
-    public class PhotoMovie
+	using System.ComponentModel.DataAnnotations;
+	public class PhotoMovie
     {
         [Key]
         public int PhotoMovieId { get; set; }
@@ -22,7 +16,6 @@ namespace OnlineMovieStore.Entities
 
         public bool IsMain { get; set; } //dali e cover slikata- udarna prva slika
 
-        //TODO: Relation with other tabeles-> Tuka ke ja praime relacijata podocna
 
     }
 }

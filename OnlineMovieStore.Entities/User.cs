@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Entities
+﻿namespace OnlineMovieStore.Entities
 {
 
-    public class User
+	using System.ComponentModel.DataAnnotations;
+	public class User
     {
+        [Key]
         public Guid MovieId { get; set; }
 
         [StringLength(250)]
