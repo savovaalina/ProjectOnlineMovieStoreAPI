@@ -16,6 +16,8 @@
 
         public bool IsMain { get; set; } //dali e cover slikata- udarna prva slika
 
+        
+
 
     }
 }

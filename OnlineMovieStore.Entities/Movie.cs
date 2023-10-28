@@ -1,14 +1,24 @@
 ﻿namespace OnlineMovieStore.Entities
 {
 	using System.ComponentModel.DataAnnotations;
+	using System.Reflection;
+
 	public class Movie
     {
         [Key]
         public int MovieId { get; set; }
 
-        #region Movie Details
 
-        [StringLength(250)]
+		#region Actor Details
+        public string? ActorName { get; set; }
+        public int ActorId { get; set; }
+
+        public Actor? Actor { get; set; }
+		#endregion
+
+		#region Movie Details
+
+		[StringLength(250)]
         public string MovieName { get; set; } = null!;
 
         public string? MovePart { get; set; }
@@ -46,11 +56,9 @@
 
         #region Sales Details
 
+        public string? PhotoUrl { get; set; }
         public double Price { get; set; }
-        public int SoldMovies { get; set; }
-        public int SoldShows { get; set; }
-
-        public int SoldParts { get; set; }
+        public int SoldSubscriptions { get; set; }
 
         #endregion
 
@@ -61,3 +69,4 @@
 
     }
 }
+    

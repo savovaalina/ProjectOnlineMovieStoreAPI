@@ -37,7 +37,9 @@
 
         public DbSet<PhotoMovie> PhotoMovies { get; set; }
 
-        public DbSet<Shows> Shows { get; set; }
+		public DbSet<Subscription> Subscriptions{ get; set; }
+
+		public DbSet<Shows> Shows { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
