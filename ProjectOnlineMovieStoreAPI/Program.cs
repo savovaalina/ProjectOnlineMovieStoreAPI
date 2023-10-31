@@ -1,9 +1,12 @@
+using OnlineMovieStore.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Ovde gi spremame site servisi i
 // konfiguracii koisto sakame da gi
 // koristime vo nashata aplikacija
 
+ConfigurationManager configuration = builder.Configuration; // access and setup the config
 
 // Add services to the container.
 
@@ -20,6 +23,10 @@ builder.Services.AddCors(c => c.AddPolicy("OnlineMoviestoreCorsPolicy", builder 
     .AllowAnyMethod()
     .AllowAnyOrigin();
 }));
+
+builder.Services.AddDbContext<OnlineMovieStoreDbContext>
+
+// ------------------------------------------------------------------------------------------
 
 var app = builder.Build();
 
