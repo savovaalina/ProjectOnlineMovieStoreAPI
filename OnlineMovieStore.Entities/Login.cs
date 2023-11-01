@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace OnlineMovieStore.Entities
 {
-	
+    
     public class Login
     {
-
+        [Key]
         [StringLength (100)]    
         public int LoginMovieId { get; set; }
 

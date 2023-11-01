@@ -11,9 +11,9 @@
 
 		#region Actor Details
         public string? ActorName { get; set; }
-        public int ActorId { get; set; }
+      //public int ActorId { get; set; }
 
-        public Actor? Actor { get; set; }
+        //public Actor? Actor { get; set; }
 		#endregion
 
 		#region Movie Details

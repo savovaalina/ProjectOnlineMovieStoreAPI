@@ -9,7 +9,7 @@
         public string? MovieName { get; set; }
 
         [StringLength(90)]
-        public string Genre { get; set; } = null!; //zhanr
+        public string? Genre { get; set; }  //zhanr
 
 
         public string? LastUpdate { get; set; } //najnov dodaden film
