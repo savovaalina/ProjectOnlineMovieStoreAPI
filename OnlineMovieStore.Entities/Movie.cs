@@ -39,7 +39,7 @@
         [StringLength(250)]
         public string? MovieActors { get; set; }
 
-        [StringLength(450)]
+        [StringLength(500)]
         public string? MovieDescription { get; set; }
 
         [StringLength(100)]

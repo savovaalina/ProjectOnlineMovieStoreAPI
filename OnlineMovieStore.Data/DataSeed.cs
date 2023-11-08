@@ -36,52 +36,62 @@ namespace OnlineMovieStore.Data
             builder.Entity<MovieCategory>().HasData
                (new MovieCategory
                {
-                   MovieId = 1,
+                   Id=1,
+                  // MovieId = 1,
                    MovieName = "Fiction"
                },
                new MovieCategory
                {
-                   MovieId = 2,
+                   Id = 2,
+                   //MovieId = 2,
                    MovieName = "Action"
                },
                new MovieCategory
                {
-                   MovieId = 3,
+                   Id = 3,
+                   //MovieId = 3,
                    MovieName = "Crime"
                },
                new MovieCategory
                {
-                   MovieId = 4,
+                   Id = 4,
+                   //MovieId = 4,
                    MovieName = "Adventure"
                },
                new MovieCategory
                {
-                   MovieId = 5,
+                   Id = 5,
+                   //MovieId = 5,
                    MovieName = "Drama"
                },
                new MovieCategory
                {
-                   MovieId = 6,
+                   Id = 6,
+                   //MovieId = 6,
                    MovieName = "Fantasy"
                },
                new MovieCategory
                {
-                   MovieId = 7,
+                   Id = 7,
+                   //MovieId = 7,
                    MovieName = "Thrillers"
                },
                new MovieCategory
                {
-                   MovieId = 8,
+                   Id = 8,
+                   //MovieId = 8,
                    MovieName = "General"
                },
                new MovieCategory
                {
-                   MovieId = 9,
+                   Id = 9,
+                   //MovieId = 9,
                    MovieName = "Horror"
                },
                new MovieCategory
                {
-                   MovieId = 10,
+                   Id = 10,
+                   //MovieId = 10,
                    MovieName = "Uncategorised"
                });
             #endregion

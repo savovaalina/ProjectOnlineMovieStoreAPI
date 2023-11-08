@@ -4,7 +4,9 @@
 	public class MovieCategory
     {
         [Key]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
+        //[Key]
+        //public int MovieId { get; set; }
 
         public string? MovieName { get; set; }
 
