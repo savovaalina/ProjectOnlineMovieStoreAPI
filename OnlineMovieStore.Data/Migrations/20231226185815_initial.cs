@@ -58,7 +58,7 @@ namespace OnlineMovieStore.Data.Migrations
                 name: "MovieCategories",
                 columns: table => new
                 {
-                    MovieId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MovieName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genre = table.Column<string>(type: "nvarchar(90)", maxLength: 90, nullable: true),
@@ -66,7 +66,7 @@ namespace OnlineMovieStore.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieCategories", x => x.MovieId);
+                    table.PrimaryKey("PK_MovieCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,10 +179,11 @@ namespace OnlineMovieStore.Data.Migrations
                     MovieDirector = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     MovieProducer = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     MovieActors = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    MovieDescription = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    MovieDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     MovieLanguage = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CategoryGenre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryMovieId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
                     PhotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     SoldSubscriptions = table.Column<int>(type: "int", nullable: false),
@@ -198,11 +199,10 @@ namespace OnlineMovieStore.Data.Migrations
                         principalTable: "Actor",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Movies_MovieCategories_CategoryMovieId",
-                        column: x => x.CategoryMovieId,
+                        name: "FK_Movies_MovieCategories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "MovieCategories",
-                        principalColumn: "MovieId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -246,7 +246,7 @@ namespace OnlineMovieStore.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "MovieCategories",
-                columns: new[] { "MovieId", "Genre", "LastUpdate", "MovieName" },
+                columns: new[] { "Id", "Genre", "LastUpdate", "MovieName" },
                 values: new object[,]
                 {
                     { 1, null, null, "Fiction" },
@@ -263,19 +263,19 @@ namespace OnlineMovieStore.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "MovieId", "ActorId", "ActorName", "CategoryGenre", "CategoryMovieId", "IsPopular", "MovePart", "MovieActors", "MovieCountry", "MovieDescription", "MovieDirector", "MovieLanguage", "MovieLength", "MovieName", "MovieProducer", "MovieRating", "MovieYearOfRelease", "PhotoUrl", "Price", "SoldSubscriptions" },
+                columns: new[] { "MovieId", "ActorId", "ActorName", "CategoryGenre", "CategoryId", "CategoryMovieId", "IsPopular", "MovePart", "MovieActors", "MovieCountry", "MovieDescription", "MovieDirector", "MovieLanguage", "MovieLength", "MovieName", "MovieProducer", "MovieRating", "MovieYearOfRelease", "PhotoUrl", "Price", "SoldSubscriptions" },
                 values: new object[,]
                 {
-                    { 1, null, null, null, 0, true, null, null, "Japan", "Synopsis. This heartwarming true story is an American adaptation of a Japanese tale about a loyal dog named Hachiko. This very special friend would accompany his master to the train station every day and return each afternoon to greet him after work.", "Lasse Hallström", null, 0, "Hachiko", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 2, null, null, null, 0, true, null, null, "USA", "An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization. Ethan Hunt (Tom Cruise) and his I.M.F. team go undercover to bring down the N.O.C. list, a list of every Agent and spy in the I.M.F.", "Tom Cruise", null, 0, "Mission Impossible", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 3, null, null, null, 0, true, null, null, "USA", "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.", "Frank Darabont", null, 0, "The Shawshank Redemption", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 4, null, null, null, 0, true, null, null, "USA", "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.", "Francis Ford Coppola", null, 0, "The Godfather", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 5, null, null, null, 0, false, null, null, "USA", "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", "Christopher Nolan", null, 0, "The Dark Knight", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 6, null, null, null, 0, false, null, null, "USA", "Imbecilic best friends Lloyd Christmas (Jim Carrey) and Harry Dunne (Jeff Daniels) stumble across a suitcase full of money left behind in Harry's car by Mary Swanson (Lauren Holly), who was on her way to the airport. The pair decide to go to Aspen, Colo., to return the money, unaware that it is connected to a kidnapping. As Harry and Lloyd -- who has fallen in love with Mary -- are pursued across the country by hired killers and police, they find both their friendship and their brains tested.", "Peter Farrelly", null, 0, "Dumb and dumber", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 7, null, null, null, 0, false, null, null, "USA", "In 1940s South Carolina, mill worker Noah Calhoun (Ryan Gosling) and rich girl Allie (Rachel McAdams) are desperately in love. But her parents don't approve. When Noah goes off to serve in World War II, it seems to mark the end of their love affair. In the interim, Allie becomes involved with another man (James Marsden). But when Noah returns to their small town years later, on the cusp of Allie's marriage, it soon becomes clear that their romance is anything but over.", "Nick Cassavetes", null, 0, "The Notebook", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 8, null, null, null, 0, true, null, null, "USA", "Seventeen years after joining forces as the backing band for rockabilly cult hero Ronnie Hawkins, Canadian roots rockers The Band call it quits with a lavish farewell show at San Francisco's Winterland Ballroom on Nov. 25, 1976. Filmed by Martin Scorsese, this documentary features standout performances by rock legends such as Bob Dylan, Van Morrison, Eric Clapton, Joni Mitchell and Muddy Waters, as well as interviews tracing the group's history and discussing road life.", "Martin Scorsese", null, 0, "The Last Waltz", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 9, null, null, null, 0, false, null, null, "USA", "A young woman discovers the rental home she booked is already occupied by a stranger. Against her better judgment, she decides to spend the night but soon discovers there's a lot more to fear than just an unexpected house guest.", "Zach Cregger", null, 0, "Barbarian", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
-                    { 10, null, null, null, 0, false, null, null, "USA", "On his way to school, Bastian (Barret Oliver) ducks into a bookstore to avoid bullies. Sneaking away with a book called The Neverending Story, Bastian begins reading it in the school attic. The novel is about Fantasia, a fantasy land threatened by The Nothing, a darkness that destroys everything it touches. The kingdom needs the help of a human child to survive. When Bastian reads a description of himself in the book, he begins to wonder if Fantasia is real and needs him to survive.", "Wolfgang Petersen", null, 0, "TheNeverEnding Story", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 }
+                    { 1, null, null, null, null, 0, true, null, null, "Japan", "Synopsis. This heartwarming true story is an American adaptation of a Japanese tale about a loyal dog named Hachiko. This very special friend would accompany his master to the train station every day and return each afternoon to greet him after work.", "Lasse Hallström", null, 0, "Hachiko", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 2, null, null, null, null, 0, true, null, null, "USA", "An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization. Ethan Hunt (Tom Cruise) and his I.M.F. team go undercover to bring down the N.O.C. list, a list of every Agent and spy in the I.M.F.", "Tom Cruise", null, 0, "Mission Impossible", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 3, null, null, null, null, 0, true, null, null, "USA", "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.", "Frank Darabont", null, 0, "The Shawshank Redemption", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 4, null, null, null, null, 0, true, null, null, "USA", "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.", "Francis Ford Coppola", null, 0, "The Godfather", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 5, null, null, null, null, 0, false, null, null, "USA", "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", "Christopher Nolan", null, 0, "The Dark Knight", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 6, null, null, null, null, 0, false, null, null, "USA", "Imbecilic best friends Lloyd Christmas (Jim Carrey) and Harry Dunne (Jeff Daniels) stumble across a suitcase full of money left behind in Harry's car by Mary Swanson (Lauren Holly), who was on her way to the airport. The pair decide to go to Aspen, Colo., to return the money, unaware that it is connected to a kidnapping. As Harry and Lloyd -- who has fallen in love with Mary -- are pursued across the country by hired killers and police, they find both their friendship and their brains tested.", "Peter Farrelly", null, 0, "Dumb and dumber", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 7, null, null, null, null, 0, false, null, null, "USA", "In 1940s South Carolina, mill worker Noah Calhoun (Ryan Gosling) and rich girl Allie (Rachel McAdams) are desperately in love. But her parents don't approve. When Noah goes off to serve in World War II, it seems to mark the end of their love affair. In the interim, Allie becomes involved with another man (James Marsden). But when Noah returns to their small town years later, on the cusp of Allie's marriage, it soon becomes clear that their romance is anything but over.", "Nick Cassavetes", null, 0, "The Notebook", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 8, null, null, null, null, 0, true, null, null, "USA", "Seventeen years after joining forces as the backing band for rockabilly cult hero Ronnie Hawkins, Canadian roots rockers The Band call it quits with a lavish farewell show at San Francisco's Winterland Ballroom on Nov. 25, 1976. Filmed by Martin Scorsese, this documentary features standout performances by rock legends such as Bob Dylan, Van Morrison, Eric Clapton, Joni Mitchell and Muddy Waters, as well as interviews tracing the group's history and discussing road life.", "Martin Scorsese", null, 0, "The Last Waltz", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 9, null, null, null, null, 0, false, null, null, "USA", "A young woman discovers the rental home she booked is already occupied by a stranger. Against her better judgment, she decides to spend the night but soon discovers there's a lot more to fear than just an unexpected house guest.", "Zach Cregger", null, 0, "Barbarian", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 },
+                    { 10, null, null, null, null, 0, false, null, null, "USA", "On his way to school, Bastian (Barret Oliver) ducks into a bookstore to avoid bullies. Sneaking away with a book called The Neverending Story, Bastian begins reading it in the school attic. The novel is about Fantasia, a fantasy land threatened by The Nothing, a darkness that destroys everything it touches. The kingdom needs the help of a human child to survive. When Bastian reads a description of himself in the book, he begins to wonder if Fantasia is real and needs him to survive.", "Wolfgang Petersen", null, 0, "TheNeverEnding Story", null, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 0.0, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -298,7 +298,7 @@ namespace OnlineMovieStore.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "MovieId", "Description", "IsAdmin", "PasswordHash", "PasswordSalt", "Phone", "UserAdress", "UserAge", "UserCity", "UserCountry", "UserCreated", "UserEmail", "UserName" },
-                values: new object[] { new Guid("5fb79765-7acc-495c-84f9-33052e87cf53"), "****Admin User ****", true, new byte[] { 205, 180, 199, 254, 212, 49, 143, 84, 112, 247, 251, 226, 112, 44, 121, 223, 23, 8, 142, 15, 156, 244, 113, 84, 158, 52, 168, 64, 26, 164, 129, 95, 146, 9, 54, 15, 9, 179, 116, 165, 177, 200, 147, 7, 91, 0, 83, 43, 64, 145, 238, 221, 174, 213, 132, 85, 216, 24, 16, 41, 153, 198, 146, 189 }, new byte[] { 228, 10, 166, 123, 8, 238, 185, 189, 201, 214, 239, 67, 128, 3, 249, 137, 88, 230, 83, 122, 194, 63, 226, 84, 36, 95, 27, 114, 13, 107, 40, 107, 156, 25, 244, 192, 124, 175, 192, 58, 109, 77, 240, 198, 41, 23, 112, 233, 250, 176, 18, 43, 208, 135, 178, 148, 205, 135, 47, 23, 10, 183, 20, 3, 53, 21, 122, 35, 227, 82, 205, 80, 205, 195, 130, 151, 231, 48, 75, 171, 155, 15, 244, 74, 8, 223, 35, 104, 0, 16, 153, 240, 12, 150, 91, 242, 182, 225, 199, 218, 136, 62, 75, 74, 193, 16, 131, 161, 234, 43, 47, 184, 51, 144, 219, 14, 209, 77, 51, 77, 239, 239, 87, 8, 164, 3, 39, 220 }, "22332025", "/", 0, "Skopje", "Macedonia", new DateTime(2023, 11, 7, 22, 10, 45, 523, DateTimeKind.Local).AddTicks(1159), "smx.test@smx.com", "onlineMoviestoreUsername" });
+                values: new object[] { new Guid("ad656c5b-b338-4f63-b41c-4ee91542da08"), "****Admin User ****", true, new byte[] { 53, 26, 227, 117, 255, 233, 72, 73, 230, 199, 170, 200, 221, 156, 215, 162, 136, 165, 85, 150, 64, 25, 90, 50, 63, 186, 20, 86, 149, 198, 233, 182, 80, 178, 233, 152, 140, 50, 153, 64, 22, 91, 19, 199, 69, 38, 42, 59, 71, 178, 249, 247, 134, 81, 247, 120, 137, 98, 99, 53, 116, 32, 109, 131 }, new byte[] { 34, 184, 82, 83, 148, 239, 220, 62, 208, 152, 155, 116, 103, 134, 172, 11, 192, 161, 29, 67, 142, 108, 232, 66, 66, 77, 147, 60, 166, 17, 235, 95, 239, 227, 228, 220, 160, 186, 200, 44, 133, 147, 57, 54, 78, 192, 0, 132, 163, 23, 166, 16, 87, 230, 188, 165, 71, 59, 175, 96, 5, 54, 230, 117, 95, 103, 216, 198, 239, 83, 214, 251, 63, 44, 12, 238, 189, 167, 148, 163, 88, 170, 44, 235, 16, 181, 109, 99, 247, 22, 231, 147, 85, 84, 161, 102, 186, 239, 190, 205, 190, 119, 134, 179, 116, 83, 179, 127, 124, 208, 185, 35, 45, 133, 81, 173, 217, 231, 57, 83, 48, 148, 86, 209, 115, 42, 190, 133 }, "22332025", "/", 0, "Skopje", "Macedonia", new DateTime(2023, 12, 26, 19, 58, 14, 672, DateTimeKind.Local).AddTicks(5028), "smx.test@smx.com", "onlineMoviestoreUsername" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_ActorId",
@@ -306,9 +306,9 @@ namespace OnlineMovieStore.Data.Migrations
                 column: "ActorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_CategoryMovieId",
+                name: "IX_Movies_CategoryId",
                 table: "Movies",
-                column: "CategoryMovieId");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PhotoMovies_MovieId",

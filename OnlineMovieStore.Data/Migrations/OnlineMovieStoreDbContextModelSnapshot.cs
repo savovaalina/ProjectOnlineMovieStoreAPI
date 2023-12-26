@@ -186,6 +186,9 @@ namespace OnlineMovieStore.Data.Migrations
                     b.Property<string>("CategoryGenre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryMovieId")
                         .HasColumnType("int");
 
@@ -204,8 +207,8 @@ namespace OnlineMovieStore.Data.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("MovieDescription")
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("MovieDirector")
                         .HasMaxLength(100)
@@ -246,7 +249,7 @@ namespace OnlineMovieStore.Data.Migrations
 
                     b.HasIndex("ActorId");
 
-                    b.HasIndex("CategoryMovieId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Movies");
 
@@ -405,11 +408,11 @@ namespace OnlineMovieStore.Data.Migrations
 
             modelBuilder.Entity("OnlineMovieStore.Entities.MovieCategory", b =>
                 {
-                    b.Property<int>("MovieId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MovieId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Genre")
                         .HasMaxLength(90)
@@ -421,59 +424,59 @@ namespace OnlineMovieStore.Data.Migrations
                     b.Property<string>("MovieName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MovieId");
+                    b.HasKey("Id");
 
                     b.ToTable("MovieCategories");
 
                     b.HasData(
                         new
                         {
-                            MovieId = 1,
+                            Id = 1,
                             MovieName = "Fiction"
                         },
                         new
                         {
-                            MovieId = 2,
+                            Id = 2,
                             MovieName = "Action"
                         },
                         new
                         {
-                            MovieId = 3,
+                            Id = 3,
                             MovieName = "Crime"
                         },
                         new
                         {
-                            MovieId = 4,
+                            Id = 4,
                             MovieName = "Adventure"
                         },
                         new
                         {
-                            MovieId = 5,
+                            Id = 5,
                             MovieName = "Drama"
                         },
                         new
                         {
-                            MovieId = 6,
+                            Id = 6,
                             MovieName = "Fantasy"
                         },
                         new
                         {
-                            MovieId = 7,
+                            Id = 7,
                             MovieName = "Thrillers"
                         },
                         new
                         {
-                            MovieId = 8,
+                            Id = 8,
                             MovieName = "General"
                         },
                         new
                         {
-                            MovieId = 9,
+                            Id = 9,
                             MovieName = "Horror"
                         },
                         new
                         {
-                            MovieId = 10,
+                            Id = 10,
                             MovieName = "Uncategorised"
                         });
                 });
@@ -713,17 +716,17 @@ namespace OnlineMovieStore.Data.Migrations
                     b.HasData(
                         new
                         {
-                            MovieId = new Guid("5fb79765-7acc-495c-84f9-33052e87cf53"),
+                            MovieId = new Guid("ad656c5b-b338-4f63-b41c-4ee91542da08"),
                             Description = "****Admin User ****",
                             IsAdmin = true,
-                            PasswordHash = new byte[] { 205, 180, 199, 254, 212, 49, 143, 84, 112, 247, 251, 226, 112, 44, 121, 223, 23, 8, 142, 15, 156, 244, 113, 84, 158, 52, 168, 64, 26, 164, 129, 95, 146, 9, 54, 15, 9, 179, 116, 165, 177, 200, 147, 7, 91, 0, 83, 43, 64, 145, 238, 221, 174, 213, 132, 85, 216, 24, 16, 41, 153, 198, 146, 189 },
-                            PasswordSalt = new byte[] { 228, 10, 166, 123, 8, 238, 185, 189, 201, 214, 239, 67, 128, 3, 249, 137, 88, 230, 83, 122, 194, 63, 226, 84, 36, 95, 27, 114, 13, 107, 40, 107, 156, 25, 244, 192, 124, 175, 192, 58, 109, 77, 240, 198, 41, 23, 112, 233, 250, 176, 18, 43, 208, 135, 178, 148, 205, 135, 47, 23, 10, 183, 20, 3, 53, 21, 122, 35, 227, 82, 205, 80, 205, 195, 130, 151, 231, 48, 75, 171, 155, 15, 244, 74, 8, 223, 35, 104, 0, 16, 153, 240, 12, 150, 91, 242, 182, 225, 199, 218, 136, 62, 75, 74, 193, 16, 131, 161, 234, 43, 47, 184, 51, 144, 219, 14, 209, 77, 51, 77, 239, 239, 87, 8, 164, 3, 39, 220 },
+                            PasswordHash = new byte[] { 53, 26, 227, 117, 255, 233, 72, 73, 230, 199, 170, 200, 221, 156, 215, 162, 136, 165, 85, 150, 64, 25, 90, 50, 63, 186, 20, 86, 149, 198, 233, 182, 80, 178, 233, 152, 140, 50, 153, 64, 22, 91, 19, 199, 69, 38, 42, 59, 71, 178, 249, 247, 134, 81, 247, 120, 137, 98, 99, 53, 116, 32, 109, 131 },
+                            PasswordSalt = new byte[] { 34, 184, 82, 83, 148, 239, 220, 62, 208, 152, 155, 116, 103, 134, 172, 11, 192, 161, 29, 67, 142, 108, 232, 66, 66, 77, 147, 60, 166, 17, 235, 95, 239, 227, 228, 220, 160, 186, 200, 44, 133, 147, 57, 54, 78, 192, 0, 132, 163, 23, 166, 16, 87, 230, 188, 165, 71, 59, 175, 96, 5, 54, 230, 117, 95, 103, 216, 198, 239, 83, 214, 251, 63, 44, 12, 238, 189, 167, 148, 163, 88, 170, 44, 235, 16, 181, 109, 99, 247, 22, 231, 147, 85, 84, 161, 102, 186, 239, 190, 205, 190, 119, 134, 179, 116, 83, 179, 127, 124, 208, 185, 35, 45, 133, 81, 173, 217, 231, 57, 83, 48, 148, 86, 209, 115, 42, 190, 133 },
                             Phone = "22332025",
                             UserAdress = "/",
                             UserAge = 0,
                             UserCity = "Skopje",
                             UserCountry = "Macedonia",
-                            UserCreated = new DateTime(2023, 11, 7, 22, 10, 45, 523, DateTimeKind.Local).AddTicks(1159),
+                            UserCreated = new DateTime(2023, 12, 26, 19, 58, 14, 672, DateTimeKind.Local).AddTicks(5028),
                             UserEmail = "smx.test@smx.com",
                             UserName = "onlineMoviestoreUsername"
                         });
@@ -737,9 +740,7 @@ namespace OnlineMovieStore.Data.Migrations
 
                     b.HasOne("OnlineMovieStore.Entities.MovieCategory", "Category")
                         .WithMany("Movies")
-                        .HasForeignKey("CategoryMovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
