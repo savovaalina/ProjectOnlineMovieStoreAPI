@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineMovieStore.Repository.Interfaces
+﻿namespace OnlineMovieStore.Repository.Interfaces
 {
-	public class IMovieCategoryRepository
+    using OnlineMovieStore.Entities;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    public interface IMovieCategoryRepository
     {
+        void Add(MovieCategory category);
+        void Edit(MovieCategory category);
+
+        void Delete(MovieCategory category);
+
+
+
+        MovieCategory GetMovieCategoryById(int id);
+
+        MovieCategory GetMovieCategoryByName(string name);
+        IEnumerable<MovieCategory> GetAllMovieCategories(MovieCategory category);
     }
 }
