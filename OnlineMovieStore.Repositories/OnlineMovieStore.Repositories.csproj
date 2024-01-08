@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineMovieStore.Repository.Interfaces\OnlineMovieStore.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

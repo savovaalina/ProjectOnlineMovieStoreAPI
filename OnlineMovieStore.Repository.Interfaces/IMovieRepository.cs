@@ -17,5 +17,35 @@ namespace OnlineMovieStore.Repository.Interfaces
 
         Movie GetMovieById(int id);
         IEnumerable<Movie> GetAllMovies();
+
+        IQueryable<Movie> GetAllMoviesQueryable();
+
+        IEnumerable<Movie> GetAllMoviesByUser();
+        IEnumerable<Movie> GetAllMoviesByUser(string userId);
+
+        IEnumerable<Movie> GetAllMoviesByDateDescending();
+
+        IEnumerable<Movie> GetAllMoviesByDateAscending();
+
+        IEnumerable<Movie> GetAllMoviesFromToDateByUserId(string userId, DateTime from, DateTime to);
+
+        IEnumerable<Movie> GetAllMoviesByPriceAscending();
+        IEnumerable<Movie> GetAllMoviesByPriceDescending();
+
+        IEnumerable<Movie> GetAllMovieByCountry(string country);
+
+        IEnumerable<Movie> GetAllMovieByActor(string actorName);
+
+        IEnumerable<Movie> GetAllMovieByProducer(string producerName);
+
+        IEnumerable<Movie> GetTop5PopularMovies();
+
+        IEnumerable<Movie> GetTopPopularMoviesByProducer(int producerId);
+
+        //Important
+        IEnumerable<Movie> GetAllMoviesWithFullRelationDate();
+
+
+
     }
 }

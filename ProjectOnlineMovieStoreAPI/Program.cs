@@ -1,5 +1,10 @@
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.EntityFrameworkCore;
 using OnlineMovieStore.Data;
+using OnlineMovieStore.Repositories;
+using OnlineMovieStore.Repository.Interfaces;
+using OnlineMovieStore.Service.Interfaces;
+using OnlineMovieStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +14,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager configuration = builder.Configuration; // access and setup the config
 IWebHostEnvironment environment = builder.Environment; // acess and setup the envirement
-// Add services to the container.
+// Add/ register services to the container.
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieCategoryService, MovieCategoryService>();
+builder.Services.AddScoped<IBookmarkMovieService, BookmarkMovieService>();  
+builder.Services.AddScoped<ILanguageService, LanguageService>();    
+builder.Services.AddScoped<IMovieSearchService, MovieSearchService>();
+builder.Services.AddScoped<IPhotoMovieService, PhotoMovieService>();
+builder.Services.AddScoped<IShowsService, ShowsService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+//Add/ register repositories to the container
+
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IBookmarkMovieRepository, BookmarkMovieRepository>();
+builder.Services.AddScoped<ILanguageRepository, LanguageRepository>();
+builder.Services.AddScoped<IMovieCategoryRepository, MovieCategoryRepository>();
+builder.Services.AddScoped<IMovieSearchRepository, MovieSearchRepository>();
+builder.Services.AddScoped<IPhotoMovieRepository, PhotoMovieRepository>();
+builder.Services.AddScoped<IShowsRepository, ShowsRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
