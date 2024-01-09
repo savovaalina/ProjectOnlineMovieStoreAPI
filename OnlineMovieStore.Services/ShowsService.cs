@@ -3,6 +3,7 @@
 namespace OnlineMovieStore.Services
 {
     using OnlineMovieStore.Entities;
+    using OnlineMovieStore.Repository.Interfaces;
     using OnlineMovieStore.Service.Interfaces;
     using System;
     using System.Collections.Generic;
@@ -11,29 +12,38 @@ namespace OnlineMovieStore.Services
     using System.Threading.Tasks;
     public class ShowsService : IShowsService
     {
+        private readonly IShowsRepository _showsRepository;
+
+        public ShowsService(IShowsRepository showsRepository)
+        {
+            _showsRepository = showsRepository;
+        }
+
         public void Add(Shows shows)
         {
-            throw new NotImplementedException();
+            _showsRepository.Add(shows);
         }
 
         public void Delete(Shows shows)
         {
-            throw new NotImplementedException();
+            _showsRepository.Delete(shows);
         }
 
         public void Edit(Shows shows)
         {
-            throw new NotImplementedException();
+            _showsRepository.Edit(shows);
         }
 
         public IEnumerable<Shows> GetAllShows(Shows shows)
         {
-            throw new NotImplementedException();
+            var result = _showsRepository.GetAllShows(shows);
+            return result;
         }
-
+            
         public Shows GetShowsById(int id)
         {
-            throw new NotImplementedException();
+            var result = _showsRepository.GetShowsById(id);
+            return result;
         }
     }
 }

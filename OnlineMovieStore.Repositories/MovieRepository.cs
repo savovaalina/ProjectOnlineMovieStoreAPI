@@ -70,7 +70,7 @@ namespace OnlineMovieStore.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Movie> GetAllMoviesByUser(string userId)
+        public IEnumerable<Movie> GetAllMoviesByUserId(string userId)
         {
             throw new NotImplementedException();
         }

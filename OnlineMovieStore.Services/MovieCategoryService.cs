@@ -3,6 +3,7 @@
 namespace OnlineMovieStore.Services
 {
     using OnlineMovieStore.Entities;
+    using OnlineMovieStore.Repository.Interfaces;
     using OnlineMovieStore.Service.Interfaces;
     using System;
     using System.Collections.Generic;
@@ -11,34 +12,45 @@ namespace OnlineMovieStore.Services
     using System.Threading.Tasks;
     public class MovieCategoryService : IMovieCategoryService
     {
+
+        private readonly IMovieCategoryRepository _movieCategoryRepository;
+
+        public MovieCategoryService(IMovieCategoryRepository movieCategoryRepository)
+        {
+            _movieCategoryRepository = movieCategoryRepository;
+        }
+
         public void Add(MovieCategory category)
         {
-            throw new NotImplementedException();
+            _movieCategoryRepository.Add(category); 
         }
 
         public void Delete(MovieCategory category)
         {
-            throw new NotImplementedException();
+            _movieCategoryRepository.Delete(category);
         }
 
         public void Edit(MovieCategory category)
         {
-            throw new NotImplementedException();
+            _movieCategoryRepository.Edit(category);
         }
 
         public IEnumerable<MovieCategory> GetAllMovieCategories(MovieCategory category)
         {
-            throw new NotImplementedException();
+            var result= _movieCategoryRepository.GetAllMovieCategories(category);
+            return result;
         }
 
         public MovieCategory GetMovieCategoryById(int id)
         {
-            throw new NotImplementedException();
+            var result = _movieCategoryRepository.GetMovieCategoryById(id);
+            return result;
         }
 
         public MovieCategory GetMovieCategoryByName(string name)
         {
-            throw new NotImplementedException();
+            var result = _movieCategoryRepository.GetMovieCategoryByName(name);
+            return result;
         }
     }
 }

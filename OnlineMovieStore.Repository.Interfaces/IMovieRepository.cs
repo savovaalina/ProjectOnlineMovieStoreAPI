@@ -21,7 +21,7 @@ namespace OnlineMovieStore.Repository.Interfaces
         IQueryable<Movie> GetAllMoviesQueryable();
 
         IEnumerable<Movie> GetAllMoviesByUser();
-        IEnumerable<Movie> GetAllMoviesByUser(string userId);
+        IEnumerable<Movie> GetAllMoviesByUserId(string userId);
 
         IEnumerable<Movie> GetAllMoviesByDateDescending();
 

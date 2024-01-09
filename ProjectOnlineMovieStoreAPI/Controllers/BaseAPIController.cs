@@ -2,6 +2,7 @@
 {
 	using Microsoft.AspNetCore.Http;
 	using Microsoft.AspNetCore.Mvc;
+    using OnlineMovieStore.Entities;
 
 	[Route("api/[controller]")]
 	[ApiController]

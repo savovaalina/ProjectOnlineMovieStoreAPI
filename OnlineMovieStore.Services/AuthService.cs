@@ -3,6 +3,7 @@
 namespace OnlineMovieStore.Services
 {
     using OnlineMovieStore.Entities;
+    using OnlineMovieStore.Repository.Interfaces;
     using OnlineMovieStore.Service.Interfaces;
     using System;
     using System.Collections.Generic;
@@ -10,21 +11,30 @@ namespace OnlineMovieStore.Services
     using System.Text;
     using System.Threading.Tasks;
     public class AuthService : IAuthService
-
     {
+        private readonly IAuthRepository _authRepository;
+
+        public AuthService(IAuthRepository authRepository)
+        {
+            _authRepository = authRepository;
+        }
+
         public Task<User> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var result = _authRepository.Login(username, password);
+            return result;
         }
 
         public Task<User> Register(User user, string password)
         {
-            throw new NotImplementedException();
+            var result = _authRepository.Register(user, password);
+            return result;
         }
 
         public Task<bool> UserExists(string email)
         {
-            throw new NotImplementedException();
+            var result = _authRepository.UserExists(email);
+            return result;
         }
     }
 }

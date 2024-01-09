@@ -1,8 +1,8 @@
 ﻿
-
 namespace OnlineMovieStore.Services
 {
     using OnlineMovieStore.Entities;
+    using OnlineMovieStore.Repository.Interfaces;
     using OnlineMovieStore.Service.Interfaces;
     using System;
     using System.Collections.Generic;
@@ -11,99 +11,132 @@ namespace OnlineMovieStore.Services
     using System.Threading.Tasks;
     public class MovieService : IMovieService
     {
+
+        private readonly IMovieRepository _movieRepository;
+
+        public MovieService(IMovieRepository movieRepository)
+        {
+            _movieRepository = movieRepository;
+        }
+
         public void Add(Movie movie)
         {
-            throw new NotImplementedException();
+            _movieRepository.Add(movie);
         }
 
         public void Delete(Movie movie)
         {
-            throw new NotImplementedException();
+            _movieRepository.Delete(movie);
+
         }
 
         public void Edit(Movie movie)
         {
-            throw new NotImplementedException();
+            _movieRepository.Edit(movie);
         }
 
         public IEnumerable<Movie> GetAllMovieByActor(string actorName)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMovieByActor(actorName);
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMovieByCountry(string country)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMovieByCountry(country);
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMovieByProducer(string producerName)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMovieByProducer(producerName);
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMovies()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMovies();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByDateAscending()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByDateAscending();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByDateDescending()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByDateDescending();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByPriceAscending()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByPriceAscending();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByPriceDescending()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByPriceDescending();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByUser()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByUser();
+            return result;
         }
 
-        public IEnumerable<Movie> GetAllMoviesByUser(string userId)
+        public IEnumerable<Movie> GetAllMoviesByUserId(string userId)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesByUserId(userId);
+            return result;
+
         }
 
         public IEnumerable<Movie> GetAllMoviesFromToDateByUserId(string userId, DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesFromToDateByUserId(userId, from, to);
+            return result;
         }
 
         public IQueryable<Movie> GetAllMoviesQueryable()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesQueryable();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesWithFullRelationDate()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetAllMoviesWithFullRelationDate();
+            return result;
         }
 
         public Movie GetMovieById(int id)
         {
-            throw new NotImplementedException();
+            //first option
+            var result = _movieRepository.GetMovieById(id);
+            return result;
+
+            //second option
+             //return _movieRepository.GetMovieById(id);
+            
         }
+
+        
 
         public IEnumerable<Movie> GetTop5PopularMovies()
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetTop5PopularMovies();
+            return result;
         }
 
         public IEnumerable<Movie> GetTopPopularMoviesByProducer(int producerId)
         {
-            throw new NotImplementedException();
+            var result = _movieRepository.GetTopPopularMoviesByProducer(producerId);
+            return result;
         }
     }
 }

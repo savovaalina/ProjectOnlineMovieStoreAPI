@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineMovieStore.Repository.Interfaces\OnlineMovieStore.Repository.Interfaces.csproj" />
     <ProjectReference Include="..\OnlineMovieStore.Service.Interfaces\OnlineMovieStore.Service.Interfaces.csproj" />
   </ItemGroup>
 

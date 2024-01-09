@@ -3,6 +3,7 @@
 namespace OnlineMovieStore.Services
 {
     using OnlineMovieStore.Entities;
+    using OnlineMovieStore.Repository.Interfaces;
     using OnlineMovieStore.Service.Interfaces;
     using System;
     using System.Collections.Generic;
@@ -11,29 +12,38 @@ namespace OnlineMovieStore.Services
     using System.Threading.Tasks;
     public class BookmarkMovieService : IBookmarkMovieService
     {
+        private readonly IBookmarkMovieRepository _bookmarkMovieRepository;
+
+        public BookmarkMovieService(IBookmarkMovieRepository bookmarkMovieRepository)
+        {
+            _bookmarkMovieRepository = bookmarkMovieRepository;
+        }
+
         public void Add(BookmarkMovie bookmark)
         {
-            throw new NotImplementedException();
+            _bookmarkMovieRepository.Add(bookmark); 
         }
 
         public void Delete(BookmarkMovie bookmark)
         {
-            throw new NotImplementedException();
+            _bookmarkMovieRepository.Delete(bookmark);
         }
 
         public void Edit(BookmarkMovie bookmark)
         {
-            throw new NotImplementedException();
+            _bookmarkMovieRepository.Edit(bookmark);
         }
 
         public IEnumerable<BookmarkMovie> GetAllBookmarkMovies(BookmarkMovie bookmark)
         {
-            throw new NotImplementedException();
+            var result = _bookmarkMovieRepository.GetAllBookmarkMovies(bookmark);
+            return result;
         }
 
         public BookmarkMovie GetBookmarkMovieById(int id)
         {
-            throw new NotImplementedException();
+            var result = _bookmarkMovieRepository.GetBookmarkMovieById(id);
+            return result;
         }
     }
 }
