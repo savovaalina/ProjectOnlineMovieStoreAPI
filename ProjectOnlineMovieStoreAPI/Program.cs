@@ -80,6 +80,8 @@ builder.Services.AddDbContext<OnlineMovieStoreDbContext>(options =>
 
 // ------------------------------------------------------------------------------------------
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
