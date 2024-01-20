@@ -1,6 +1,7 @@
 ﻿
 namespace OnlineMovieStore.Repositories
 {
+    using OnlineMovieStore.Data;
     using OnlineMovieStore.Entities;
     using OnlineMovieStore.Repository.Interfaces;
     using System;
@@ -10,6 +11,8 @@ namespace OnlineMovieStore.Repositories
     using System.Threading.Tasks;
     public class MovieRepository : IMovieRepository
     {
+
+        private readonly OnlineMovieStoreDbContext _context;
         public void Add(Movie movie)
         {
             throw new NotImplementedException();
@@ -42,7 +45,8 @@ namespace OnlineMovieStore.Repositories
 
         public IEnumerable<Movie> GetAllMovies()
         {
-            throw new NotImplementedException();
+            var result = _context.Movies.AsEnumerable();
+            return result;
         }
 
         public IEnumerable<Movie> GetAllMoviesByDateAscending()

@@ -14,7 +14,7 @@ namespace OnlineMovieStore.Services
 
         private readonly IMovieRepository _movieRepository;
 
-        public MovieService(IMovieRepository movieRepository)
+        public  MovieService(IMovieRepository movieRepository)
         {
             _movieRepository = movieRepository;
         }

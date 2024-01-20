@@ -7,5 +7,6 @@ namespace ProjectOnlineMovieStoreAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+
     }
 }

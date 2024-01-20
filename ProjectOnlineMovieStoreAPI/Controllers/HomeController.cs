@@ -29,8 +29,9 @@ using ProjectOnlineMovieStoreAPI.Models;
 		#region Helper Methods
 
 		
-		[NonAction]
-		public async Task<Hollywood> CallExternalApiHollywoods()
+           [NonAction]
+
+        public async Task<Hollywood> CallExternalApiHollywoods()
 		{
 			Hollywood hollywoodsData = new Hollywood();
 
